@@ -1,3 +1,4 @@
+
     class Excel {
         constructor(content) {
             this.content = content;
@@ -105,7 +106,7 @@
 
     async function fetchExcel(url) {
         try {
-            const response = await fetch(url, { mode: 'cors' });
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -117,7 +118,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', async function() {
-        const url = 'https://chess-results.com/tnr979564.aspx?lan=9&zeilen=0&prt=4&excel=2010';
+        const url = '/proxy'; // Endpoint del servidor proxy local
         try {
             const content = await fetchExcel(url);
             if (content) {
