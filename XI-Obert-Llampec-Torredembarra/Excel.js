@@ -120,7 +120,7 @@ async function fetchExcel(url) {
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
-    const url = 'https://chess-results.com/tnr979564.aspx?lan=9&zeilen=0&prt=4&excel=2010';
+    const url = 'https://chess-results.com/tnr979564.aspx?lan=9&zeilen=0&art=1&rd=8&prt=4&excel=2010';
     try {
         const content = await fetchExcel(url);
         if (content) {
