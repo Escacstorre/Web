@@ -104,30 +104,32 @@
         }
     }
 
-    async function fetchExcel(url) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const blob = await response.blob();
-            return readXlsxFile(blob);
-        } catch (error) {
-            console.error('Error fetching the Excel file:', error);
+async function fetchExcel(url) {
+    const proxyUrl = 'https://api.allorigins.win/raw?url='; // URL del proxy
+    try {
+        // Construir la URL del proxy
+        const response = await fetch(proxyUrl + encodeURIComponent(url));
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const blob = await response.blob();
+        return readXlsxFile(blob);
+    } catch (error) {
+        console.error('Error fetching the Excel file:', error);
     }
+}
 
-    document.addEventListener('DOMContentLoaded', async function() {
-        const url = '/proxy'; // Endpoint del servidor proxy local
-        try {
-            const content = await fetchExcel(url);
-            if (content) {
-                const excel = new Excel(content);
-                ExcelPrinter.print('excel-table', excel);
-            } else {
-                console.error('Failed to load Excel content.');
-            }
-        } catch (error) {
-            console.error('Error processing the Excel file:', error);
+document.addEventListener('DOMContentLoaded', async function() {
+    const url = 'https://chess-results.com/tnr979564.aspx?lan=9&zeilen=0&prt=4&excel=2010';
+    try {
+        const content = await fetchExcel(url);
+        if (content) {
+            const excel = new Excel(content);
+            ExcelPrinter.print('excel-table', excel);
+        } else {
+            console.error('Failed to load Excel content.');
         }
-    });
+    } catch (error) {
+        console.error('Error processing the Excel file:', error);
+    }
+});
