@@ -1,0 +1,62 @@
+.tabla-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  border-radius: 16px;
+}
+h2 {
+    color: #051EF5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+
+  .tablag {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    border-bottom: 2px solid #051EF5;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .tablag thead tr {
+    background-color: #051EF5;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .tablag th,
+  .tablag td {
+    padding: 12px 15px;
+    border: none; /* ❌ sin bordes interiores */
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+  }
+
+  .tablag thead th {
+    color: #ffffff;
+  }
+
+  .tablag tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .tablag tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* ✅ Centrar columnas 1, 3 y 4 */
+  .tablag th:nth-child(1),
+  .tablag td:nth-child(1),
+  .tablag th:nth-child(3),
+  .tablag td:nth-child(3),
+  .tablag th:nth-child(4),
+  .tablag td:nth-child(4) {
+    text-align: center;
+  }
